@@ -1,7 +1,5 @@
 import matplotlib.pyplot as plt
-import numpy as np
 from ConvexHull import ConvexHull
-import ast
 
 # test
 listPoints = [[3, 2], [4, 0], [0, -2], [1, 0], [-1, 1], [1, -1], [-1, 0], [-2, 0], [4, -1], [-2, 4], [3, 0], [1, 5], [0, 0], [2, 3]]
