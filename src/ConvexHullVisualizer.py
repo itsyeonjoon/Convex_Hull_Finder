@@ -14,17 +14,18 @@ result.append(firstPoint)
 
 xAxis = []
 yAxis = []
-for i in range(0, len(ch.points)): 
-    xAxis.append(ch.points[i][0])
-    yAxis.append(ch.points[i][1])
-plt.plot(xAxis, yAxis, 'bo')
-
-xAxis2 = []
-yAxis2 = []
 for i in range(0, len(result)): 
-    xAxis2.append(result[i][0])
-    yAxis2.append(result[i][1])
-plt.plot(xAxis2, yAxis2, 'k')
+    xAxis.append(result[i][0])
+    yAxis.append(result[i][1])
+plt.plot(xAxis, yAxis, 'k', xAxis, yAxis, 'bo')
+
+xAxis.clear()
+yAxis.clear()
+
+for i in range(0, len(ch.inner)): 
+    xAxis.append(ch.inner[i][0])
+    yAxis.append(ch.inner[i][1])
+plt.plot(xAxis, yAxis, 'ro')
 
 plt.show()
 
