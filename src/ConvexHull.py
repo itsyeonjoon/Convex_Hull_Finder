@@ -10,8 +10,6 @@ from collections import deque
 import math
 
 class ConvexHull: 
-    pointAddress = [] # saves address of each points
-    minimumY = 0 # saves address of a point that has minimum Y value 
 
     # __init__ creates a ConvexHull object, initializing the 2D list of 
     # points, pointAddress list, and finds the point with the minimum y value
@@ -20,6 +18,9 @@ class ConvexHull:
         if len(points) < 3:
             raise ValueError("There should be at least 3 points to form a shape.") 
 
+        self.pointAddress = [] # saves address of each points
+        self.minimumY = 0 # saves address of a point that has minimum Y value 
+        self.inner = []
         self.points = points # list of lists of points
         # self.minimumY = 0 # saves address of a point that has minimum Y value 
         # self.pointAddress = [] # saves address of each points
@@ -105,6 +106,9 @@ class ConvexHull:
         if self.isCCW(self.points[pt1], self.points[pt2], self.points[pt3]): 
             hull.append(hullStack.pop())
             hullCount += 1
+        
+        while inner: 
+            self.inner.append(self.points[inner.pop()])
 
         answer = []
         while hull: 
